@@ -24,17 +24,14 @@ int main() {
 
     auto vim = get(vertex_index, g);
 
-    std::vector<graph_traits<Graph>::edge_descriptor> cycle;
+    std::vector<graph_traits<Graph>::edge_descriptor> max_cycle;
+    std::vector<graph_traits<Graph>::edge_descriptor> min_cycle;
 
-    double ratio = maximum_cycle_ratio(
-        g,
-        vim,
-        w,
-        w,
-        &cycle
-    );
+    double max_ratio = maximum_cycle_ratio(g, vim, w, w, &max_cycle);
+    double min_ratio = minimum_cycle_ratio(g, vim, w, w, &min_cycle);
 
-    std::cout << "Maximum Cycle Ratio: " << ratio << std::endl;
+    std::cout << "Maximum Cycle Ratio: " << max_ratio << std::endl;
+    std::cout << "Minimum Cycle Ratio: " << min_ratio << std::endl;
 
     return 0;
 }
